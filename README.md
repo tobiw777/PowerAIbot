@@ -21,7 +21,7 @@ For WatsonBot you also need to get Watson-developer-cloud lib so use:
 pip install --update watson-developer-cloud
 ```
 All needed credentials are included!
-###Running project
+### Running project
 If you got all required libs you can simply run chatbots.
 To run WatsonBot just:
 ```
