@@ -139,8 +139,8 @@ def classify(sentence, model, words, classes, intents, error):
 
 params = restoreParams('training_data2', '2.json')
 model = loadModel('./model.tflearn', params[2], params[3])
-print("Witaj w programie chatbota!")
-print("Powiedz Cos :)")
+print("Welcome to PowerAIBot app")
+print("Say something :)")
 context = {}
 while True:
     a = input(">>> ")
