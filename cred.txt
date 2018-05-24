@@ -1,0 +1,6 @@
+{
+  "url": "https://gateway.watsonplatform.net/conversation/api",
+  "username": "116cbcfc-69b9-45dc-9129-c9dc79356bb4",
+  "password": "jdua68u6RgG1",
+  "workspace_id": "81e367eb-9cb4-4afd-b932-330d4417b44e"
+}

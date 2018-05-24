@@ -78,7 +78,7 @@ def startTrain(model, train_x, train_y):
 
 def saveAll(words, classes, train_x, train_y):
     pickle.dump({'words':words, 'classes':classes, 'train_x':train_x,
-                'train_y':train_y}, open('training_data','wb'))
+                'train_y':train_y}, open('training_data2','wb'))
 
 def restoreParams(pickleFile, jsonFile):
     data = pickle.load(open(pickleFile, 'rb'))
@@ -118,28 +118,33 @@ def classify(sentence, model, words, classes, intents, error):
     final_res = []
     for r in results:
         final_res.append((classes[r[0]], r[1]))
-    #print (final_res)
     if final_res:
-       # print(final_res[0][0])
         for i in intents['context']:
             if i['tag'] == str(final_res[0][0]):
-                print(random.choice(i['response']))
+                if not 'context-filter' in i or i['context-filter'] == context['user']:
+                    print(random.choice(i['response']))
+                    if 'context-set' in i:
+                        context['user'] = i['context-set']
+                        break
     else:
         print("Sorry I don't understand")
     return final_res
-    #return final_res
-    
+   
+#ints = importJson('2.json')
+#w,c,d = preprocessData(ints)
+#train_x, train_y = transformData(w,c,d)
+#mod = buildNetworkModel(train_x, train_y)
+#startTrain(mod, train_x, train_y)
+#saveAll(w,c,train_x,train_y)
 
-
-params = restoreParams('training_data', '1.json')
+params = restoreParams('training_data2', '2.json')
 model = loadModel('./model.tflearn', params[2], params[3])
 print("Witaj w programie chatbota!")
 print("Powiedz Cos :)")
+context = {}
 while True:
     a = input(">>> ")
     c = classify(a, model,params[0], params[1], params[4], 0.35)
     if c and c[0][0] == 'bye':
         break
-#if __name__ == "main":
-#    preprocessData(importJson(sys.argv[1]))
 

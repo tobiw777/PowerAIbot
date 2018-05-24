@@ -1,0 +1,196 @@
+{
+  "context": [
+    {
+      "tag": "greetings",
+      "pattern": [
+        "hello",
+        "good morning",
+        "good afternoon",
+        "Hi"
+      ],
+      "response": [
+        "hi",
+        "welcome",
+        "How can I help you?",
+        "What Can I do for you?"
+      ],
+		"context-set": ""
+    },
+    {
+      "tag": "bye",
+      "pattern": [
+        "good bye",
+        "bye bye",
+        "See you later!",
+        "Ciao"
+      ],
+      "response": [
+        "see ya",
+        "have a nice day!",
+        "Good bye!",
+        "Adios"
+      ]
+    },
+    {
+      "tag": "thanks",
+      "pattern": [
+        "Thank you",
+        "Thanks!",
+        "that was helpful!"
+      ],
+      "response": [
+        "You are welcome!",
+        "No Problem, that's my job!",
+        "No problemo, my friendo!"
+      ]
+    },
+    {
+      "tag": "help",
+      "pattern": [
+        "I need help",
+        "Please help me!",
+        "What can you do?"
+      ],
+      "response": [
+        "I can help you with registration. There are 4 steps you have to do!",
+        "Here I am. I can help you with all 4 steps of registration process!",
+        "I will help you with 4 steps of registrations"
+      ]
+    },
+    {
+      "tag": "steps",
+      "pattern": [
+        "What are steps of registration?",
+        "Can you show me all steps?",
+        "what steps?"
+      ],
+      "response": [
+        "There are 4 steps. 1 - Login a.k.a e-mail adress 2. Password 3. Age (min 18) 4. Confirmation E-mail",
+        "Ofcourse! 1 - Login a.k.a e-mail adress 2. Password 3. Age (min 18) 4. Confirmation E-mail",
+        "1 - Login a.k.a e-mail adress 2. Password 3. Age (min 18) 4. Confirmation E-mail"
+      ]
+    },
+    {
+      "tag": "first",
+      "pattern": [
+        "What about first step?",
+        "Login",
+        "What about first step/login?",
+        "1"
+      ],
+      "response": [
+        "Firstly you must type your future login - valid email adress",
+        "You have to type your email adress",
+        "You need to give me a valid e-mail adress!"
+      ],
+      "context-set": "first"
+    },
+    {
+      "tag": "second",
+      "pattern": [
+        "What is second step?",
+        "2",
+        "Password"
+      ],
+      "response": [
+        "Secondly you have to type your password and confirm it",
+        "In second step you need to type password twice!",
+        "You need to type your password twice!"
+      ],
+	  "context-set": "second"
+    },
+    {
+      "tag": "third",
+      "pattern": [
+        "What is third step?",
+        "3",
+        "Age"
+      ],
+      "response": [
+        "You have to tell me your age!",
+        "In third step you have to type your age",
+        "Almost done! Just type here your age!"
+      ],
+	"context-set": "third"
+    },
+    {
+      "tag": "last",
+      "pattern": [
+        "What is last step?",
+        "4",
+        "confirmation e-mail"
+      ],
+      "response": [
+        "You have to confirm your data by link in confirmation e-mail",
+        "Last step is just a confirmation via e-mail that your data is valid",
+        "You have wait until we send you a confirmation e-mail"
+      ],
+	  "context-set": "last"
+    },
+    {
+      "tag": "name",
+      "pattern": [
+        "What is your name?",
+        "Who are you?",
+        "Do you have a name?"
+      ],
+      "response": [
+        "I am fancy chatbot!!",
+        "I am just a chatbot, who helps people!",
+        "Just a fancy chatbot!"
+      ]
+    },
+	{
+		"tag": "next",
+		"pattern": [
+			"What's next?",
+			"What should I do next?",
+			"What is next step?"],
+		"response": [
+			"Then you have to type your password",
+			"Next thing is to type your password twice",
+			"You have to set your password"],
+		"context-filter": "first",
+        "context-set": "second"
+	},
+	{
+		"tag": "next",
+		"pattern": [
+			"What's next?",
+			"What should I do next?",
+			"What is next step?"],
+		"response": [
+			"Next step is to type your age",
+			"Then you need to set your age",
+			"In this step you have to set your age"],
+		"context-filter": "second",
+        "context-set": "third"
+	},
+	{
+		"tag": "next",
+		"pattern": [
+			"What's next?",
+			"What should I do next?",
+			"What is next step?"],
+		"response": [
+			"The last step is confirmation by clicking link we sent you ",
+			"You have to confirm your e-mail address",
+			"Almost done! Just confirm your e-mail address"],
+		"context-filter": "third",
+        "context-set": "last"
+	},
+    {
+        "tag" : "next",
+        "pattern": [
+            "What is next step?",
+            "What's next?",
+            "What should I do next?"],
+        "response": [
+            "This is your last step! All is done!",
+            "All have been done. No further steps!",
+            "That's last step. You completed that task!"],
+        "context-filter": "last",
+        "context-set": "last"
+    }
+    ]
+}
