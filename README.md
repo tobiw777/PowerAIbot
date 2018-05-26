@@ -1,5 +1,5 @@
 # PowerAIbot
-Project of two chatbots. First one is build with Python and TensorFlow and Tflearn libs.
+Project of two chatbots. First one was built with Python and TensorFlow and Tflearn libs.
 Second uses Python and IBM Cloud tools, particularly Watson Conversation module.
 ## Getting Started
 This is public repo so just clone it!
