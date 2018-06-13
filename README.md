@@ -35,5 +35,5 @@ python3 PowerAIBot.py
 PowerAIBot's small talk is about simple registration procedure. You can ask him what he could do for you.
 ### WatsonBot contexts
 WatsonBot uses default workspace!
-### Important
+### Important!!!
 This project uses SpeechToText module so you need to have installed some SpeechToText engine (eg eSpeak)!!!
