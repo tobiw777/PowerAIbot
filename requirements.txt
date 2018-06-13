@@ -4,4 +4,5 @@ json
 nltk
 tensorflow
 tflearn
+pyttsx3
 
