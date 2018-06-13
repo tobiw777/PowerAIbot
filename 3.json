@@ -1,0 +1,154 @@
+{
+  "context": [
+    {
+      "tag": "greetings",
+      "pattern": [
+        "hello",
+        "good morning",
+        "good afternoon",
+        "Hi",
+		"Hello I am IBM Watson Service Bot. Let's talk!"
+      ],
+      "response": [
+        "What can you do for me?",
+        "What are your tasks?",
+        "What is your purpose",
+        "I would like to know something about your products",
+		"What is your name?"
+      ],
+		"context-set": ""
+    },
+    {
+      "tag": "bye",
+      "pattern": [
+		"That is great! Give us a feedback what server you need and we will send you more details about your personal configuration soon",
+        "Goodbye",
+        "bye bye",
+        "See you later!",
+        "Ciao"
+      ],
+      "response": [
+        "See you",
+        "Have a nice day!",
+        "Goodbye!",
+        "Adios"]
+    },
+    {
+      "tag": "anything_else",
+      "pattern": [
+        "Is there anything else you wanted to know?",
+        "Would you like to ask me about something else?",
+        "Do you have other questions about that product?",
+		"Do you need more information about current server?",
+		"Would you like to ask me about some other specifications?"
+		
+      ],
+      "response": [
+        "Tell me more about CPU",
+        "I would like to know something more about RAM",
+        "Please give me more information about Operating System",
+		"What about warranty?",
+		"No thank you. I think I know enough",
+		"What about price?"
+      ]
+    },
+    {
+      "tag": "tasks",
+      "pattern": [
+        "My job is to present you IBM Server products. Just ask what you need",
+        "I would like to present you some of IBM Server Products. Just ask what you need"
+      ],
+      "response": [
+        "What kind of products can you present me?",
+        "Tell me something about your products"
+      ]
+    },
+    {
+      "tag": "products",
+      "pattern": [
+        "There are four groups of available products"
+      ],
+      "response": [
+        "I am interrested in Accelerated Servers",
+        "What can you tell me about Hyperconverged Servers?",
+        "Please give me more information about Enterprise Servers",
+		"I need brief information about Scale-out Servers"
+      ]
+    },
+    {
+      "tag": "server",
+      "pattern": [
+        "IBM Power System Accelerated Compute Server (AC922)",
+        "The IBM Power Systems E870C, with OpenStack based cloud management and open source automation",
+        "IBM Hyperconverged Systems are the industry’s first hyperconverged infrastructure appliance that combines Nutanix's software-defined",
+		"Designed for AIX, IBM i and Linux environments, these Power Systems servers easily scale out and integrate into your organization’s cloud and AI strategy"
+      ],
+      "response": [
+        "Firstly tell me about it's processor",
+        "At the beginnng tell me about RAM",
+        "What Operating Systems are available at this platform?",
+		"Do you have a full warranty service?",
+		"How much does it costs?"
+		]
+    },
+    {
+      "tag": "final",
+      "pattern": [
+        "My pleasure! Are you interrested in a certain product?",
+        "Thank you for conversation! Would you like to make a purchase of certain product?"
+      ],
+      "response": [
+        "No. I need to think about it first",
+        "Yes! Your offer is very beneficial."
+      ]
+    },
+    {
+      "tag": "spec",
+      "pattern": [
+        "Please specify what kind of server are you interested in"
+      ],
+      "response": [
+        "Accelerated Server",
+        "Hyperconverged Server",
+        "Scale-out Server",
+		"Enterprise Server"
+      ]
+    },
+    {
+      "tag": "name",
+      "pattern": [
+        "My name is Bot... WatsonBot"
+      ],
+      "response": [
+        "Nice to meet you. What can you do for me?"
+      ]
+    },
+	{
+		"tag": "price",
+		"pattern": [
+			"All costs are depenent on specific configuration. Price is set personally.",
+			"It costs",
+			"The price is"],
+		"response": [
+			"Thank you!",
+			"Thanks!"]
+	},
+	{
+		"tag": "no-thanks",
+		"pattern": [
+			"Well, I didn't helped you at all. Ask me about my products."],
+		"response": [
+			"What products?"]
+	},
+	{
+		"tag": "error",
+		"pattern": [
+			"I didn't understand. You can try rephrasing.",
+			"Can you reword your statement? I'm not understanding.",
+			"I didn't get your meaning."],
+		"response": [
+			"Help me then!",
+			"I need your help"]
+	}
+    ]
+}

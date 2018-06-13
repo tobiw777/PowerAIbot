@@ -1,2 +1,2 @@
-model_checkpoint_path: "/home/przrszydlowski/newBot/model.tflearn"
-all_model_checkpoint_paths: "/home/przrszydlowski/newBot/model.tflearn"
+model_checkpoint_path: "C:\\Users\\hp\\Documents\\PowerAIbot\\model.tflearn"
+all_model_checkpoint_paths: "C:\\Users\\hp\\Documents\\PowerAIbot\\model.tflearn"

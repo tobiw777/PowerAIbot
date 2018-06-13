@@ -8,7 +8,21 @@ import tflearn
 import json
 import sys
 import pickle
+from watson_developer_cloud import ConversationV1
+import pyttsx3
 
+
+def initVoice(glos):
+    engine = pyttsx3.init()
+    voices = engine.getProperty('voices')
+    rate = engine.getProperty('rate')
+    engine.setProperty('voice', voices[glos].id)
+    engine.setProperty('rate', rate - 20)
+    return engine
+
+def say(text, engine):
+    engine.say(text)
+    engine.runAndWait()
 
 lemmatizer = WordNetLemmatizer()
 
@@ -78,7 +92,7 @@ def startTrain(model, train_x, train_y):
 
 def saveAll(words, classes, train_x, train_y):
     pickle.dump({'words':words, 'classes':classes, 'train_x':train_x,
-                'train_y':train_y}, open('training_data2','wb'))
+                'train_y':train_y}, open('training_data3','wb'))
 
 def restoreParams(pickleFile, jsonFile):
     data = pickle.load(open(pickleFile, 'rb'))
@@ -116,35 +130,43 @@ def classify(sentence, model, words, classes, intents, error):
     results = [[i,r] for i,r in enumerate(results) if r>error]
     results.sort(key=lambda x: x[1], reverse=True)
     final_res = []
+    odp = "Sorry I don't understand"
     for r in results:
         final_res.append((classes[r[0]], r[1]))
     if final_res:
         for i in intents['context']:
             if i['tag'] == str(final_res[0][0]):
-                if not 'context-filter' in i or i['context-filter'] == context['user']:
-                    print(random.choice(i['response']))
+                if not 'context-filter' in i or i['context-filter'] == contextP['user']:
+                    odp = random.choice(i['response'])
+                    print("PowerBot says: " + odp)
+                    say(odp, eng1)
                     if 'context-set' in i:
-                        context['user'] = i['context-set']
+                        contextP['user'] = i['context-set']
                         break
     else:
-        print("Sorry I don't understand")
-    return final_res
-   
-#ints = importJson('2.json')
-#w,c,d = preprocessData(ints)
-#train_x, train_y = transformData(w,c,d)
-#mod = buildNetworkModel(train_x, train_y)
-#startTrain(mod, train_x, train_y)
-#saveAll(w,c,train_x,train_y)
+        print(odp)
+        say(odp, eng1)
+    return final_res, odp
 
-params = restoreParams('training_data2', '2.json')
+
+
+'''   
+ints = importJson('3.json')
+w,c,d = preprocessData(ints)
+train_x, train_y = transformData(w,c,d)
+mod = buildNetworkModel(train_x, train_y)
+startTrain(mod, train_x, train_y)
+saveAll(w,c,train_x,train_y)
+print("all done!")
+'''
+eng1 = initVoice(1)
+params = restoreParams('training_data3', '3.json')
 model = loadModel('./model.tflearn', params[2], params[3])
 print("Welcome to PowerAIBot app")
 print("Say something :)")
-context = {}
+contextP = {}
 while True:
     a = input(">>> ")
-    c = classify(a, model,params[0], params[1], params[4], 0.35)
-    if c and c[0][0] == 'bye':
+    final_res,odp = classify(a, model,params[0], params[1], params[4], 0.35)
+    if final_res and final_res[0][0] == 'bye':
         break
-
