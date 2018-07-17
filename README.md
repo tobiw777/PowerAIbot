@@ -31,6 +31,12 @@ In order to run PowerAIBot use:
 ```
 python3 PowerAIBot.py
 ```
+UPDATED!!!
+Last version (Bots.py) supports dynamic conversation between two chatbots with support of TextToSpeach tech.
+In order to run this version you need to have installed speech synthesize engine eg. Espeak.
+ ```
+ python3 Bots.py
+ ```
 ### PowerBot contexts
 PowerAIBot's small talk is about simple registration procedure. You can ask him what he could do for you.
 ### WatsonBot contexts
